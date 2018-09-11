@@ -1,0 +1,38 @@
+#HackerRank MySQL example
+
+SELECT CONCAT(Name, "(", LEFT(Occupation, 1), ")")
+FROM OCCUPATIONS
+ORDER BY Name ASC;
+
+SELECT CONCAT("There are a total of ", Name_Count, " ", occupation, "s.")
+FROM 
+(SELECT LOWER(Occupation) as occupation, COUNT(Name) AS Name_Count
+FROM OCCUPATIONS
+GROUP BY Occupation
+ORDER BY Name_Count, occupation ASC) AS subset;
+
+'''
+Output:
+Aamina(D) 
+Ashley(P) 
+Belvet(P) 
+Britney(P) 
+Christeen(S) 
+Eve(A) 
+Jane(S) 
+Jennifer(A) 
+Jenny(S) 
+Julia(D) 
+Ketty(A) 
+Kristeen(S) 
+Maria(P) 
+Meera(P) 
+Naomi(P) 
+Priya(D) 
+Priyanka(P) 
+Samantha(A) 
+There are a total of 3 doctors. 
+There are a total of 4 actors. 
+There are a total of 4 singers. 
+There are a total of 7 professors. 
+'''
